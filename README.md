@@ -1,8 +1,12 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Globeia - Blogs App
+
+This is a Next.js Blogging App with CRUD (Create, Read, Update, Delete) functionality. It allows users to create and list blogs. The individual blog pages, as well as the update and delete features, are works in progress.
+
+The app is connected to an existing backend service built with MongoDB, and you can find the backend repository [here](https://github.com/manugeo/blog-list).
 
 ## Getting Started
 
-First, run the development server:
+To run the development server, use the following command:
 
 ```bash
 npm run dev
@@ -14,11 +18,21 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the app's result. You can start editing the pages by modifying the files in the `app/pages` directory. The page auto-updates as you edit.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load the Inter font, a custom Google Font.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Deployment
+
+You can deploy your Next.js app on Vercel, the creators of Next.js, by following the instructions in the [Next.js deployment documentation](https://nextjs.org/docs/deployment).
+
+## Access the App
+
+The Globeia Blogs App is deployed and accessible at the following URL: [https://globeia-blogs-app.vercel.app/](https://globeia-blogs-app.vercel.app/).
+
+## GitHub Repository
+
+You can find the code for this app on GitHub: [https://github.com/manugeo/globeia-blogs-app](https://github.com/manugeo/globeia-blogs-app).
 
 ## Learn More
 
@@ -27,10 +41,6 @@ To learn more about Next.js, take a look at the following resources:
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Feedback and contributions are welcome! Feel free to explore the [Next.js GitHub repository](https://github.com/vercel/next.js/).
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Happy coding!
