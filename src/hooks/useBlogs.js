@@ -3,7 +3,7 @@ import { customFetch } from "@/lib/utils";
 
 const blogUrl = '/blogs';
 
-const useBlogsService = () => {
+const useBlogs = () => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
@@ -24,4 +24,4 @@ const useBlogsService = () => {
   return { blogs, createBlog };
 };
 
-export default useBlogsService;
+export default useBlogs;

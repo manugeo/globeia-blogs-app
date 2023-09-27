@@ -1,11 +1,11 @@
 'use client'
 
+import useBlogsFromContext from "@/hooks/useBlogsFromContext";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { TextP } from "./ui/texts";
-import useBlogsService from "@/hooks/useBlogsService";
 
 const BlogList = ({ className }) => {
-  const { blogs } = useBlogsService();
+  const { blogs } = useBlogsFromContext();
 
   return (
     <div className={className}>

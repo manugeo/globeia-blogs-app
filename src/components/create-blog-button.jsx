@@ -6,14 +6,14 @@ import InputText from "./ui/inputs/input-text";
 import InputTextarea from "./ui/inputs/input-textarea";
 import { useState } from "react";
 import { useToast } from "./ui/use-toast";
-import useBlogsService from "@/hooks/useBlogsService";
+import useBlogsFromContext from "@/hooks/useBlogsFromContext";
 
 const CreateBlogButton = ({ className = "" }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const { toast } = useToast();
-  const { createBlog: createBlogService } = useBlogsService();
+  const { createBlog: createBlogService } = useBlogsFromContext();
 
   const createBlog = async () => {
     const newTitle = title.trim();
@@ -28,7 +28,7 @@ const CreateBlogButton = ({ className = "" }) => {
     }
     const newBlog = await createBlogService({ title: newTitle, description: newDescription });
     if (newBlog) {
-      toast({ title: "Success! Your Blog Has Been Created"});
+      toast({ title: "Success! Your Blog Has Been Created" });
       setTitle('');
       setDescription('');
       setIsDialogOpen(false);
