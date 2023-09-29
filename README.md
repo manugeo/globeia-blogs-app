@@ -10,6 +10,10 @@ Please be aware that the initial loading of blogs may take a bit longer, especia
 
 Subsequent loading times should be significantly faster. Thank you for your patience!
 
+## Access the App
+
+The Globeia Blogs App is deployed and accessible at the following URL: [https://globeia-blogs-app.vercel.app/](https://globeia-blogs-app.vercel.app/).
+
 ## Getting Started
 
 To run the development server, use the following command:
@@ -27,10 +31,6 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) in your browser to see the app's result. You can start editing the pages by modifying the files in the `app/pages` directory. The page auto-updates as you edit.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load the Inter font, a custom Google Font.
-
-## Access the App
-
-The Globeia Blogs App is deployed and accessible at the following URL: [https://globeia-blogs-app.vercel.app/](https://globeia-blogs-app.vercel.app/).
 
 ## Learn More
 
