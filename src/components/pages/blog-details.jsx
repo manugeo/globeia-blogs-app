@@ -1,6 +1,6 @@
 'use client'
 
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { TextH3, TextP } from "../ui/texts";
 import useBlogsFromContext from "@/hooks/useBlogsFromContext";
 import Separator from "../ui/separator";
@@ -11,6 +11,7 @@ const BlogDetails = () => {
   const params = useParams()
   const { blogs, isInitializing } = useBlogsFromContext();
   const currentBlog = blogs.find(blog => blog.id === params.id);
+  const router = useRouter();
 
   console.log('params:', params, 'blogs :', blogs);
 
@@ -18,7 +19,7 @@ const BlogDetails = () => {
   return (
     <div className="flex flex-col pb-6">
       <div className="mt-4 mx-6 flex">
-        <Button variant="outline" size="icon"><ChevronLeft /></Button>
+        <Button variant="outline" size="icon" onClick={() => router.back()}><ChevronLeft /></Button>
         {currentBlog && <>
           <Button variant="outline" size="icon" className="ml-auto"><Pencil /></Button>
           <Button variant="outline" size="icon" className="ml-1"><Trash2 /></Button>
