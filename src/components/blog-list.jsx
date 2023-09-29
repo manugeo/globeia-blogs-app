@@ -1,8 +1,10 @@
 'use client'
 
 import useBlogsFromContext from "@/hooks/useBlogsFromContext";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card";
 import { TextP } from "./ui/texts";
+import { Button } from "./ui/button";
+import Link from "next/link";
 
 const BlogList = ({ className }) => {
   const { blogs, isInitializing } = useBlogsFromContext();
@@ -18,8 +20,13 @@ const BlogList = ({ className }) => {
           <CardTitle>{title}</CardTitle>
         </CardHeader>
         <CardContent>
-          <TextP>{description}</TextP>
+          <TextP className="whitespace-pre-wrap">{description}</TextP>
         </CardContent>
+        <CardFooter>
+          <Link href={`/${id}`} passHref>
+            <Button>Read More</Button>
+          </Link>
+        </CardFooter>
       </Card>)}
     </div>
   );
