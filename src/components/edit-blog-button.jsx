@@ -51,7 +51,8 @@ const EditBlogButton = ({ currentBlog, className }) => {
         </DialogHeader>
         <div className="mt-6">
           <InputText label="Title" placeholder="Enter Blog Title" value={title} onChange={onTitleChange} />
-          <InputTextarea className="mt-6" label="Description" placeholder="Brief Blog Description" rows={10} value={description} onChange={onDescriptionChange} />
+          <InputTextarea className="mt-6" label="Description" placeholder="Brief Blog Description" rows={10} value={description}
+            onChange={onDescriptionChange} />
         </div>
         <DialogFooter>
           <Button onClick={onEditClick}>Update</Button>

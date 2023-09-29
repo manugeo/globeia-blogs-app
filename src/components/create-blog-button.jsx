@@ -50,7 +50,8 @@ const CreateBlogButton = ({ className = "" }) => {
         </DialogHeader>
         <div className="mt-6">
           <InputText label="Title" placeholder="Enter Blog Title" value={title} onChange={onTitleChange} />
-          <InputTextarea className="mt-6" label="Description" placeholder="Brief Blog Description" value={description} onChange={onDescriptionChange} />
+          <InputTextarea className="mt-6" label="Description" placeholder="Brief Blog Description" value={description} rows={10}
+          onChange={onDescriptionChange} />
         </div>
         <DialogFooter>
           <Button onClick={onCreateClick}>Create</Button>
