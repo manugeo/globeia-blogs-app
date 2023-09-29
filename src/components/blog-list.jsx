@@ -5,9 +5,12 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card"
 import { TextP } from "./ui/texts";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { getTruncatedString } from "@/lib/utils";
 
 const BlogList = ({ className }) => {
   const { blogs, isInitializing } = useBlogsFromContext();
+
+  const getTruncatedDescription = (description) => getTruncatedString(description, 150);
 
   return isInitializing ? (
     <div className={className}>
@@ -20,11 +23,11 @@ const BlogList = ({ className }) => {
           <CardTitle>{title}</CardTitle>
         </CardHeader>
         <CardContent>
-          <TextP className="whitespace-pre-wrap">{description}</TextP>
+          <TextP className="whitespace-pre-wrap">{getTruncatedDescription(description)}</TextP>
         </CardContent>
         <CardFooter>
-          <Link href={`/${id}`} passHref>
-            <Button>Read More</Button>
+          <Link className="flex-grow" href={`/${id}`} passHref>
+            <Button className="w-full">Read More</Button>
           </Link>
         </CardFooter>
       </Card>)}
