@@ -24,7 +24,19 @@ const useBlogs = () => {
     return response;
   };
 
-  return { blogs, isInitializing, createBlog };
+  const updateBlog = async ({ id, title, description }) => {
+    const body = { title, description };
+    const response = await customFetch(`${blogUrl}/${id}`, 'PUT', body);
+    if (response) {
+      const updatedBlogs = blogs.map(blog => {
+        return (blog.id === id) ? { ...blog, ...body } : blog;
+      });
+      setBlogs(updatedBlogs);
+    }
+    return response;
+  };
+
+  return { blogs, isInitializing, createBlog, updateBlog };
 };
 
 export default useBlogs;

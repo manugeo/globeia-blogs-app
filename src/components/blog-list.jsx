@@ -11,7 +11,7 @@ const BlogList = ({ className }) => {
 
   return isInitializing ? (
     <div className={className}>
-      <TextP className="text-center">Loading Blogs, Please Wait...</TextP>
+      <TextP>Loading Blogs, Please Wait...</TextP>
     </div>
   ) : (
     <div className={className}>

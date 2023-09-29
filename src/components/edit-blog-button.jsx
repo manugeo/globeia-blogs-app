@@ -7,53 +7,54 @@ import InputTextarea from "./ui/inputs/input-textarea";
 import { useState } from "react";
 import { useToast } from "./ui/use-toast";
 import useBlogsFromContext from "@/hooks/useBlogsFromContext";
+import { Pencil } from "lucide-react";
 
-const CreateBlogButton = ({ className = "" }) => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+const EditBlogButton = ({ currentBlog, className }) => {
+  const [title, setTitle] = useState(currentBlog.title);
+  const [description, setDescription] = useState(currentBlog.description);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const { toast } = useToast();
-  const { createBlog: createBlogService } = useBlogsFromContext();
+  const { updateBlog: updateBlogService } = useBlogsFromContext();
 
-  const createBlog = async () => {
-    const newTitle = title.trim();
-    const newDescription = description.trim();
-    if (!newTitle) {
+  const updateBlog = async () => {
+    const updatedTitle = title.trim();
+    const updatedDescription = description.trim();
+    if (!updatedTitle) {
       toast({ title: "Oops! Please Enter a Title.", variant: "destructive" })
       return;
     }
-    if (!newDescription) {
+    if (!updatedDescription) {
       toast({ title: "Hold on! Don't Forget the Description.", variant: "destructive" })
       return;
     }
-    const newBlog = await createBlogService({ title: newTitle, description: newDescription });
-    if (newBlog) {
-      toast({ title: "Success! Your Blog Has Been Created" });
-      setIsDialogOpen(false);
+    const updatedBlog = await updateBlogService({ id: currentBlog.id, title: updatedTitle, description: updatedDescription });
+    if (updatedBlog) {
+      toast({ title: "Success! Your Blog Has Been Updated" });
       setTitle('');
       setDescription('');
+      setIsDialogOpen(false);
     }
   };
 
   const onTitleChange = (e) => setTitle(e.target.value);
   const onDescriptionChange = (e) => setDescription(e.target.value);
-  const onCreateClick = () => createBlog();
+  const onEditClick = () => updateBlog();
 
   return (
     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
       <DialogTrigger asChild>
-        <Button className={className}>Create New Blog</Button>
+        <Button variant="outline" size="icon" className={className}><Pencil /></Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Create New Blog</DialogTitle>
+          <DialogTitle>Edit Blog</DialogTitle>
         </DialogHeader>
         <div className="mt-6">
           <InputText label="Title" placeholder="Enter Blog Title" value={title} onChange={onTitleChange} />
-          <InputTextarea className="mt-6" label="Description" placeholder="Brief Blog Description" value={description} onChange={onDescriptionChange} />
+          <InputTextarea className="mt-6" label="Description" placeholder="Brief Blog Description" rows={10} value={description} onChange={onDescriptionChange} />
         </div>
         <DialogFooter>
-          <Button onClick={onCreateClick}>Create</Button>
+          <Button onClick={onEditClick}>Update</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
@@ -61,4 +62,4 @@ const CreateBlogButton = ({ className = "" }) => {
   );
 };
 
-export default CreateBlogButton;
+export default EditBlogButton;
