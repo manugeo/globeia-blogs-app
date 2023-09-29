@@ -18,7 +18,7 @@ const BlogList = ({ className }) => {
     </div>
   ) : (
     <div className={className}>
-      {blogs.map(({ id, title, description }, i) => <Card key={id} className={(i === 0) ? '' : 'mt-6'}>
+      {(blogs.length ? blogs.map(({ id, title, description }, i) => <Card key={id} className={(i === 0) ? '' : 'mt-6'}>
         <CardHeader>
           <CardTitle>{title}</CardTitle>
         </CardHeader>
@@ -30,7 +30,8 @@ const BlogList = ({ className }) => {
             <Button className="w-full">Read More</Button>
           </Link>
         </CardFooter>
-      </Card>)}
+      </Card>) : <TextP>No Blogs Found.</TextP>)}
+      { }
     </div>
   );
 };
