@@ -5,11 +5,14 @@ const blogUrl = '/blogs';
 
 const useBlogs = () => {
   const [blogs, setBlogs] = useState([]);
+  const [isInitializing, setIsInitializing] = useState(false);
 
   useEffect(() => {
     const initializeBlogs = async () => {
+      setIsInitializing(true);
       const response = await customFetch(blogUrl, 'GET');
       if (response) setBlogs(response);
+      setIsInitializing(false);
     };
     initializeBlogs();
   }, []);
@@ -21,7 +24,7 @@ const useBlogs = () => {
     return response;
   };
 
-  return { blogs, createBlog };
+  return { blogs, isInitializing, createBlog };
 };
 
 export default useBlogs;
