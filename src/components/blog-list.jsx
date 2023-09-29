@@ -26,7 +26,7 @@ const BlogList = ({ className }) => {
           <TextP className="whitespace-pre-wrap">{getTruncatedDescription(description)}</TextP>
         </CardContent>
         <CardFooter>
-          <Link className="flex-grow" href={`/${id}`} passHref>
+          <Link className="flex-grow" href={{ pathname: `/${id}`, query: { title, description } }} passHref>
             <Button className="w-full">Read More</Button>
           </Link>
         </CardFooter>

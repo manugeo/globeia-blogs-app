@@ -12,6 +12,9 @@ const robotoMono = Roboto_Mono({
 export const metadata = {
   title: 'Globeia - Blogs App',
   description: 'Next.js Blogging App with CRUD Functionality',
+  alternates: {
+    canonical: 'https://globeia-blogs-app.vercel.app/'
+  }
 }
 
 export default function RootLayout({ children }) {
