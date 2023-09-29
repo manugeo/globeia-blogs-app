@@ -20,7 +20,7 @@ export const customFetch = async (url, method, body = null) => {
     body: body ? JSON.stringify(body) : null
   }).then(response => {
     if (!response.ok) throw new Error('Network response was not OK');
-    return response.json();
+    return (response.status !== 204) ? response.json() : true;
   }).catch(error => {
     console.log('There has been a problem with your fetch operation:', error);
     return null;

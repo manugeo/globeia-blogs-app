@@ -36,7 +36,16 @@ const useBlogs = () => {
     return response;
   };
 
-  return { blogs, isInitializing, createBlog, updateBlog };
+  const deleteBlog = async (id) => {
+    const response = await customFetch(`${blogUrl}/${id}`, 'DELETE');
+    if (response) {
+      const newBlogs = blogs.filter(blog => blog.id !== id);
+      setBlogs(newBlogs);
+    }
+    return response;
+  };
+
+  return { blogs, isInitializing, createBlog, updateBlog, deleteBlog };
 };
 
 export default useBlogs;
